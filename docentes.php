@@ -1,14 +1,23 @@
-<?php
+<form action="guardar_docente.php" method="POST">
 
-include("conexion.php");
+    <input type="text"
+           name="legajo"
+           placeholder="Legajo">
 
-$sql = "SELECT * FROM docentes";
+    <input type="text"
+           name="nombre"
+           placeholder="Nombre">
 
-$resultado = mysqli_query($conexion, $sql);
+    <input type="text"
+           name="apellido"
+           placeholder="Apellido">
 
-while($fila = mysqli_fetch_assoc($resultado))
-{
-    echo $fila['nombre'] . "<br>";
-}
+    <input type="number"
+           name="huella"
+           placeholder="ID Huella">
 
-?>
+    <button>
+        Guardar
+    </button>
+
+</form>
