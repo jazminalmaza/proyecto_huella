@@ -7,8 +7,9 @@ $conexion = mysqli_connect(
     "asistencia_docentes"
 );
 
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
+if(!$conexion)
+{
+    die("Error de conexión");
 }
 
 ?>
