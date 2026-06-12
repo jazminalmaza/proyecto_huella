@@ -4,11 +4,11 @@ $conexion = mysqli_connect(
     "localhost",
     "root",
     "",
-    "asistencia_docente"
+    "asistencia_docentes"
 );
 
 if (!$conexion) {
-    die("Error de conexión");
+    die("Error de conexión: " . mysqli_connect_error());
 }
 
 ?>
