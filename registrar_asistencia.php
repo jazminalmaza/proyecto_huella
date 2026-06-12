@@ -9,30 +9,6 @@ include("conexion.php");
     <meta charset="UTF-8">
     <title>Registrar Asistencia</title>
 
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            text-align:center;
-            margin-top:50px;
-        }
-
-        form{
-            width:400px;
-            margin:auto;
-        }
-
-        select, button{
-            width:100%;
-            padding:10px;
-            margin-top:10px;
-        }
-
-        .resultado{
-            margin-top:20px;
-            font-size:18px;
-        }
-    </style>
-
 </head>
 
 <body>
