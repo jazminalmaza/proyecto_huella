@@ -1,74 +1,14 @@
-<!DOCTYPE html>
-<html>
+<?php
 
-<head>
+include("conexion.php");
 
-    <title>Registrar Docente</title>
+$sql = "SELECT * FROM docentes";
 
-    <link rel="stylesheet" href="estilo.css">
+$resultado = mysqli_query($conexion, $sql);
 
-</head>
+while($fila = mysqli_fetch_assoc($resultado))
+{
+    echo $fila['nombre'] . "<br>";
+}
 
-<body>
-
-<h2>Registrar Docente</h2>
-
-<form action="guardar_docente.php" method="POST">
-
-    <input
-        type="text"
-        name="legajo"
-        placeholder="Legajo"
-        required>
-
-    <br><br>
-
-    <input
-        type="text"
-        name="nombre"
-        placeholder="Nombre"
-        required>
-
-    <br><br>
-
-    <input
-        type="text"
-        name="apellido"
-        placeholder="Apellido"
-        required>
-
-    <br><br>
-
-    <input
-        type="text"
-        name="cargo"
-        placeholder="Cargo"
-        required>
-
-    <br><br>
-
-    <input
-        type="text"
-        name="materia"
-        placeholder="Materia">
-
-    <br><br>
-
-    <input
-        type="number"
-        name="huella"
-        placeholder="ID Huella">
-
-    <br><br>
-
-    <button type="submit">
-
-        Guardar
-
-    </button>
-
-</form>
-
-</body>
-
-</html>
+?>
