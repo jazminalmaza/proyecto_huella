@@ -23,7 +23,7 @@ include("conexion.php");
 
         <?php
 
-        $consulta = mysqli_query($conexion, "SELECT * FROM docente");
+        $consulta = mysqli_query($conexion, "SELECT * FROM docentes");
 
         while($fila = mysqli_fetch_assoc($consulta)){
         ?>

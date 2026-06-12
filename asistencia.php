@@ -14,7 +14,7 @@
 
         <h2>Registrar Asistencia</h2>
 
-        <form action="guardar_asistencia.php" method="POST">
+        <form action="registrar_asistencia.php" method="POST">
 
             <input
                 type="number"
