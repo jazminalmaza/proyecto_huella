@@ -4,7 +4,7 @@ $conexion = mysqli_connect(
     "localhost",
     "root",
     "",
-    "asistencia_docente"
+    "asistencia_docentes"
 );
 
 if (!$conexion) {
