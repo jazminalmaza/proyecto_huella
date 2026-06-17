@@ -3,12 +3,11 @@ include("conexion.php");
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
-    <meta charset="UTF-8">
     <title>Registrar Asistencia</title>
-
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
@@ -23,14 +22,18 @@ include("conexion.php");
 
         <?php
 
-        $consulta = mysqli_query($conexion, "SELECT * FROM docentes");
+        $consulta = mysqli_query(
+            $conexion,
+            "SELECT * FROM docentes"
+        );
 
-        while($fila = mysqli_fetch_assoc($consulta)){
+        while($fila = mysqli_fetch_assoc($consulta))
+        {
         ?>
 
-        <option value="<?php echo $fila['id']; ?>">
-            <?php echo $fila['nombre']." ".$fila['apellido']; ?>
-        </option>
+            <option value="<?php echo $fila['id']; ?>">
+                <?php echo $fila['nombre']; ?>
+            </option>
 
         <?php
         }
@@ -39,53 +42,42 @@ include("conexion.php");
     </select>
 
     <button type="submit">
-        Registrar Asistencia
+        Registrar
     </button>
 
 </form>
 
 <?php
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
     $docente_id = $_POST['docente_id'];
 
     $fecha = date("Y-m-d");
+
     $hora = date("H:i:s");
 
-    // Hora de tolerancia para la demo
-    $hora_tolerancia = "08:15:00";
+    $estado = "Presente";
 
-    if($hora > $hora_tolerancia){
-        $estado = "Tarde";
-    }else{
-        $estado = "Presente";
-    }
-
-    $sql = "INSERT INTO asistencias
-    (docente_id, fecha, hora_registro, estado)
+    $sql = "
+    INSERT INTO asistencias
+    (
+        docente_id,
+        fecha,
+        hora_registro,
+        estado
+    )
     VALUES
-    ('$docente_id', '$fecha', '$hora', '$estado')";
+    (
+        '$docente_id',
+        '$fecha',
+        '$hora',
+        '$estado'
+    )";
 
-    if(mysqli_query($conexion, $sql)){
+    mysqli_query($conexion,$sql);
 
-        echo "<div class='resultado'>";
-
-        echo "<h3>Asistencia registrada correctamente</h3>";
-
-        echo "Fecha: ".$fecha."<br><br>";
-
-        echo "Hora registrada: ".$hora."<br><br>";
-
-        echo "Estado: ".$estado;
-
-        echo "</div>";
-
-    }else{
-
-        echo "Error: ".mysqli_error($conexion);
-
-    }
+    echo "<h3>Asistencia registrada correctamente</h3>";
 }
 
 ?>
